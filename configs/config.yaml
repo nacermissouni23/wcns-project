@@ -1,0 +1,30 @@
+# Project Configuration - AMC Semester Project (RML2016.10a)
+
+seed: 42
+
+dataset:
+  name: "RML2016.10a"
+  raw_path: "data/raw/RML2016.10a_dict.pkl"
+  n_samples: 128
+  n_channels: 2  # I and Q
+
+split:
+  train_ratio: 0.70
+  val_ratio: 0.15
+  test_ratio: 0.15
+  stratify_by: ["modulation", "snr"]
+
+visualization:
+  # At least 6 representative modulations covering PSK, QAM, AM, FSK families
+  selected_modulations:
+    - "BPSK"
+    - "QPSK"
+    - "8PSK"
+    - "QAM16"
+    - "QAM64"
+    - "AM-DSB"
+    - "GFSK"
+  selected_snrs: [-10, 0, 10, 18]
+  fft_length: 128
+  fft_window: "hann"
+  output_dir: "outputs/figures"
